@@ -11,7 +11,7 @@
 [node name="BallTracker" parent="." instance=ExtResource("2_llsl0")]
 scale = Vector2(0.497989, 0.525062)
 
-[node name="player_racket" parent="." instance=ExtResource("3_0xvqg")]
+[node name="player1_racket" parent="." instance=ExtResource("3_0xvqg")]
 position = Vector2(-378, 6)
 
 [node name="Camera2D" type="Camera2D" parent="."]
