@@ -1,7 +1,7 @@
-extends RigidBody2D
+extends CharacterBody2D
 
+var ballSpeed = 200
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 	
