@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgy2l1hpj4cxk"]
+[gd_scene load_steps=7 format=3 uid="uid://bgy2l1hpj4cxk"]
 
 [ext_resource type="PackedScene" uid="uid://0eujvevyrkt7" path="res://World/Map.tscn" id="1_0ymom"]
+[ext_resource type="Script" path="res://World/main.gd" id="1_cjo4d"]
 [ext_resource type="PackedScene" uid="uid://dq4u6skekqm7u" path="res://World/BallTracker.tscn" id="2_llsl0"]
 [ext_resource type="PackedScene" uid="uid://bobehahjcwifc" path="res://Player/player_racket.tscn" id="3_0xvqg"]
 [ext_resource type="PackedScene" uid="uid://cfh1nlf3q3p46" path="res://Player/ball.tscn" id="4_tarqi"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv7ot"]
+size = Vector2(800, 8)
+
 [node name="main" type="Node2D"]
+script = ExtResource("1_cjo4d")
 
 [node name="Map" parent="." instance=ExtResource("1_0ymom")]
 
 [node name="BallTracker" parent="." instance=ExtResource("2_llsl0")]
+visible = false
 scale = Vector2(0.497989, 0.525062)
 
 [node name="player_racket" parent="." instance=ExtResource("3_0xvqg")]
@@ -18,3 +24,23 @@ position = Vector2(-378, 6)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Ball" parent="." instance=ExtResource("4_tarqi")]
+
+[node name="BoardWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardWall"]
+position = Vector2(0, -304)
+shape = SubResource("RectangleShape2D_wv7ot")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BoardWall"]
+position = Vector2(-404, 7.39098e-06)
+rotation = 1.57029
+shape = SubResource("RectangleShape2D_wv7ot")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BoardWall"]
+position = Vector2(404, 7.39098e-06)
+rotation = 1.57029
+shape = SubResource("RectangleShape2D_wv7ot")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BoardWall"]
+position = Vector2(0, 304)
+shape = SubResource("RectangleShape2D_wv7ot")

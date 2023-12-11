@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfh1nlf3q3p46"]
+[gd_scene load_steps=4 format=3 uid="uid://cfh1nlf3q3p46"]
+
+[ext_resource type="Script" path="res://Player/ball.gd" id="1_1adpi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yfosj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_5k5fp"]
 
 [node name="Ball" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_1adpi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yfosj")
