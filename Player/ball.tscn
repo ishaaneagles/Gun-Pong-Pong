@@ -7,6 +7,8 @@
 [sub_resource type="SphereMesh" id="SphereMesh_5k5fp"]
 
 [node name="Ball" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("1_1adpi")
 
