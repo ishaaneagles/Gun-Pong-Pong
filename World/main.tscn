@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgy2l1hpj4cxk"]
+[gd_scene load_steps=5 format=3 uid="uid://bgy2l1hpj4cxk"]
 
 [ext_resource type="PackedScene" uid="uid://0eujvevyrkt7" path="res://World/Map.tscn" id="1_0ymom"]
 [ext_resource type="PackedScene" uid="uid://dq4u6skekqm7u" path="res://World/BallTracker.tscn" id="2_llsl0"]
 [ext_resource type="PackedScene" uid="uid://bobehahjcwifc" path="res://Player/player_racket.tscn" id="3_0xvqg"]
+[ext_resource type="PackedScene" uid="uid://cfh1nlf3q3p46" path="res://Player/ball.tscn" id="4_tarqi"]
 
 [node name="main" type="Node2D"]
 
@@ -15,3 +16,5 @@ scale = Vector2(0.497989, 0.525062)
 position = Vector2(-378, 6)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Ball" parent="." instance=ExtResource("4_tarqi")]
