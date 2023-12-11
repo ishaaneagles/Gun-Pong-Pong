@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq4u6skekqm7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsbkp"]
+
+[node name="BallTracker" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(80, 60)
+shape = SubResource("RectangleShape2D_wsbkp")
