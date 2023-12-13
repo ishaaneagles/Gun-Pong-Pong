@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsuraopg83pve" path="res://Player/player1_racket.tscn" id="3_0xvqg"]
 [ext_resource type="PackedScene" uid="uid://cfh1nlf3q3p46" path="res://Player/ball.tscn" id="4_tarqi"]
 [ext_resource type="PackedScene" uid="uid://dw8bd0j8sqrnh" path="res://System/goal.tscn" id="6_pkx6c"]
-[ext_resource type="PackedScene" uid="uid://cgkae560k47nq" path="res://Player/player_racket2.tscn" id="7_12mf0"]
+[ext_resource type="PackedScene" uid="uid://b2ibgkqi6ravs" path="res://Player/player_racket2.tscn" id="7_12mf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv7ot"]
 size = Vector2(800, 8)

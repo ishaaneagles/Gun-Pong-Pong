@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgkae560k47nq"]
+[gd_scene load_steps=6 format=3 uid="uid://b2ibgkqi6ravs"]
 
-[ext_resource type="Script" path="res://Player/player1_racket.gd" id="1_3tcnn"]
+[ext_resource type="Script" path="res://Player/player2_racket.gd" id="1_cqm7o"]
 [ext_resource type="Script" path="res://Player/Hitbox.gd" id="2_3typd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncbo2"]
@@ -10,10 +10,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxxpj"]
 size = Vector2(210, 1020)
 
-[node name="player1_racket" type="CharacterBody2D"]
+[node name="player2_racket" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
 collision_layer = 0
-script = ExtResource("1_3tcnn")
+script = ExtResource("1_cqm7o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(10, 50)
