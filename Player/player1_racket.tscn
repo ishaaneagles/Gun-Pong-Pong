@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bobehahjcwifc"]
+[gd_scene load_steps=6 format=3 uid="uid://bsuraopg83pve"]
 
 [ext_resource type="Script" path="res://Player/player1_racket.gd" id="1_336me"]
 [ext_resource type="Script" path="res://Player/Hitbox.gd" id="2_6m0av"]
@@ -8,19 +8,40 @@
 [sub_resource type="BoxMesh" id="BoxMesh_pu2di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxxpj"]
-size = Vector2(210, 1020)
+size = Vector2(210, 400)
 
 [node name="player1_racket" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
 collision_layer = 0
 script = ExtResource("1_336me")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(10, 50)
+[node name="Topwall" type="CollisionShape2D" parent="."]
+position = Vector2(0, -400)
+scale = Vector2(10, 20)
 shape = SubResource("RectangleShape2D_ncbo2")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(200, 1000)
+[node name="Midwall" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_ncbo2")
+
+[node name="Bottomwall" type="CollisionShape2D" parent="."]
+position = Vector2(0, 400)
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_ncbo2")
+
+[node name="Middle" type="MeshInstance2D" parent="."]
+position = Vector2(6.67572e-06, 5.72205e-06)
+scale = Vector2(200, 400)
+mesh = SubResource("BoxMesh_pu2di")
+
+[node name="Bottom" type="MeshInstance2D" parent="."]
+position = Vector2(1.62125e-05, 400)
+scale = Vector2(200, 400)
+mesh = SubResource("BoxMesh_pu2di")
+
+[node name="Top" type="MeshInstance2D" parent="."]
+position = Vector2(0, -400)
+scale = Vector2(200, 400)
 mesh = SubResource("BoxMesh_pu2di")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -28,9 +49,51 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("2_6m0av")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(5.00003, 9.53674e-06)
+[node name="Middle" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(5, 0)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_vxxpj")
 
+[node name="Bottom" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(5, 400)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_vxxpj")
+
+[node name="Top" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(5, -400)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_vxxpj")
+
+[node name="Hurtboxtop" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="Topwall" type="CollisionShape2D" parent="Hurtboxtop"]
+modulate = Color(0.686275, 0, 0.0196078, 1)
+position = Vector2(0, -400)
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_ncbo2")
+
+[node name="Hurtboxmid" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="Midwall" type="CollisionShape2D" parent="Hurtboxmid"]
+modulate = Color(0.686275, 0, 0.0196078, 1)
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_ncbo2")
+
+[node name="Hurtboxbot" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="Bottomwall" type="CollisionShape2D" parent="Hurtboxbot"]
+modulate = Color(0.686275, 0, 0.0196078, 1)
+position = Vector2(0, 400)
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_ncbo2")
+
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
+[connection signal="body_entered" from="Hurtboxtop" to="." method="_on_hurtboxtop_body_entered"]
+[connection signal="body_entered" from="Hurtboxmid" to="." method="_on_hurtboxmid_body_entered"]
+[connection signal="body_entered" from="Hurtboxbot" to="." method="_on_hurtboxbot_body_entered"]
