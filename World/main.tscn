@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgy2l1hpj4cxk"]
+[gd_scene load_steps=9 format=3 uid="uid://bgy2l1hpj4cxk"]
 
 [ext_resource type="PackedScene" uid="uid://0eujvevyrkt7" path="res://World/Map.tscn" id="1_0ymom"]
 [ext_resource type="Script" path="res://World/main.gd" id="1_cjo4d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bobehahjcwifc" path="res://Player/player_racket.tscn" id="3_0xvqg"]
 [ext_resource type="PackedScene" uid="uid://cfh1nlf3q3p46" path="res://Player/ball.tscn" id="4_tarqi"]
 [ext_resource type="PackedScene" uid="uid://dw8bd0j8sqrnh" path="res://System/goal.tscn" id="6_pkx6c"]
+[ext_resource type="PackedScene" uid="uid://cgkae560k47nq" path="res://Player/player_racket2.tscn" id="7_12mf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv7ot"]
 size = Vector2(800, 8)
@@ -20,8 +21,7 @@ visible = false
 scale = Vector2(0.497989, 0.525062)
 
 [node name="player1_racket" parent="." instance=ExtResource("3_0xvqg")]
-position = Vector2(-378, 6)
-collision_mask = 1
+position = Vector2(-378, 2.38419e-07)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -38,3 +38,6 @@ position = Vector2(0, 304)
 shape = SubResource("RectangleShape2D_wv7ot")
 
 [node name="Goal" parent="." instance=ExtResource("6_pkx6c")]
+
+[node name="player1_racket2" parent="." instance=ExtResource("7_12mf0")]
+position = Vector2(376, 1.54972e-06)

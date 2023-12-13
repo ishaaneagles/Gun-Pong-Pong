@@ -5,5 +5,5 @@ var ballSpeed = null
 
 func _on_body_entered(body):
 	ball = body
-	ball.ballSpeed = 0
+	ball.queue_free()
 	
