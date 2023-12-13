@@ -17,3 +17,5 @@ data_*/
 *.md5
 *.cache
 *.bin
+.DS_Store
+.DS_Store

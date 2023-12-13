@@ -5,14 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://dq4u6skekqm7u" path="res://World/BallTracker.tscn" id="2_llsl0"]
 [ext_resource type="PackedScene" uid="uid://bsuraopg83pve" path="res://Player/player1_racket.tscn" id="3_0xvqg"]
 [ext_resource type="PackedScene" uid="uid://cfh1nlf3q3p46" path="res://Player/ball.tscn" id="4_tarqi"]
-[ext_resource type="PackedScene" uid="uid://bc6hdck3ec1ov" path="res://Player/player2_racket.tscn" id="4_v8omp"]
 [ext_resource type="PackedScene" uid="uid://dw8bd0j8sqrnh" path="res://System/goal.tscn" id="6_pkx6c"]
+[ext_resource type="PackedScene" uid="uid://cgkae560k47nq" path="res://Player/player2_racket.tscn" id="7_12mf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv7ot"]
 size = Vector2(800, 8)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_cjo4d")
+PackedBall = ExtResource("4_tarqi")
 
 [node name="Map" parent="." instance=ExtResource("1_0ymom")]
 
@@ -20,7 +21,7 @@ script = ExtResource("1_cjo4d")
 visible = false
 scale = Vector2(0.497989, 0.525062)
 
-[node name="player1_racket2" parent="." instance=ExtResource("4_v8omp")]
+[node name="player1_racket2" parent="." instance=ExtResource("7_12mf0")]
 position = Vector2(378, 0)
 
 [node name="player1_racket" parent="." instance=ExtResource("3_0xvqg")]
@@ -41,3 +42,27 @@ position = Vector2(0, 304)
 shape = SubResource("RectangleShape2D_wv7ot")
 
 [node name="Goal" parent="." instance=ExtResource("6_pkx6c")]
+
+[node name="player2_racket" parent="." instance=ExtResource("7_12mf0")]
+position = Vector2(376, 1.54972e-06)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Score1" type="Label" parent="CanvasLayer"]
+offset_left = -260.0
+offset_top = -268.0
+offset_right = -220.0
+offset_bottom = -245.0
+scale = Vector2(4, 4)
+
+[node name="Score2" type="Label" parent="CanvasLayer"]
+offset_left = 180.0
+offset_top = -268.0
+offset_right = 220.0
+offset_bottom = -245.0
+scale = Vector2(4, 4)
+
+[connection signal="player_1_scored" from="Goal" to="." method="_on_goal_player_1_scored"]
+[connection signal="player_2_scored" from="Goal" to="." method="_on_goal_player_2_scored"]
+[connection signal="reset_ball" from="Goal" to="." method="_on_goal_reset_ball"]
