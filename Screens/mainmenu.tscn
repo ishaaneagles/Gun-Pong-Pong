@@ -1,15 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://cddxc7mqlpj33"]
+[gd_scene load_steps=3 format=3 uid="uid://cddxc7mqlpj33"]
 
 [ext_resource type="Script" path="res://Screens/mainmenu.gd" id="1_tmki7"]
+[ext_resource type="Texture2D" uid="uid://cwbpx2bnc0ct1" path="res://World/Titlescreengunpong.png" id="2_qlxxw"]
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -19.0
+offset_right = 11.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tmki7")
+
+[node name="Titlescreengunpong" type="Sprite2D" parent="."]
+position = Vector2(385, 330)
+texture = ExtResource("2_qlxxw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
