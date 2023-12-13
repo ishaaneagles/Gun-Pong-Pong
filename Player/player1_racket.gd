@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var skinb = $Bottom
 
 @onready var hitt = $Hitbox/Top
-@onready var hitm = %Hitbox/Middle
+@onready var hitm = $Hitbox/Middle
 @onready var hitb = $Hitbox/Bottom
 
 const SPEED = 400.0
