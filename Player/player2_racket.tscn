@@ -1,19 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsuraopg83pve"]
+[gd_scene load_steps=6 format=3 uid="uid://bc6hdck3ec1ov"]
 
-[ext_resource type="Script" path="res://Player/player1_racket.gd" id="1_336me"]
-[ext_resource type="Script" path="res://Player/Hitbox.gd" id="2_6m0av"]
+[ext_resource type="Script" path="res://Player/player1_racket.gd" id="1_2i52t"]
+[ext_resource type="Script" path="res://Player/Hitbox.gd" id="2_2x744"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncbo2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pu2di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxxpj"]
-size = Vector2(210, 415.001)
+size = Vector2(210, 415)
 
 [node name="player1_racket" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
 collision_layer = 0
-script = ExtResource("1_336me")
+script = ExtResource("1_2i52t")
 
 [node name="Topwall" type="CollisionShape2D" parent="."]
 position = Vector2(0, -400)
@@ -47,20 +47,20 @@ mesh = SubResource("BoxMesh_pu2di")
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("2_6m0av")
+script = ExtResource("2_2x744")
 
 [node name="Middle" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(5, 0)
+position = Vector2(-5, 0)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_vxxpj")
 
 [node name="Bottom" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(5, 402.5)
+position = Vector2(-5, 402.5)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_vxxpj")
 
 [node name="Top" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(5, -405)
+position = Vector2(-5, -405)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_vxxpj")
 
