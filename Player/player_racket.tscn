@@ -19,3 +19,7 @@ shape = SubResource("RectangleShape2D_ncbo2")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 scale = Vector2(200, 1000)
 mesh = SubResource("BoxMesh_pu2di")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

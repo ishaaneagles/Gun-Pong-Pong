@@ -2,8 +2,14 @@ extends CharacterBody2D
 
 var ballSpeed = 200
 
+var collision = false
+
 func _ready():
-	pass # Replace with function body.
+	pass
 	
 func _process(delta):
-	pass
+	
+	if collision == false:
+		velocity.x = -ballSpeed
+		
+	move_and_slide()
