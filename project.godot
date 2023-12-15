@@ -15,6 +15,12 @@ run/main_scene="res://Screens/mainmenu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MainMenuMusicPlayer="*res://Music/music_player.tscn"
+BallSound="*res://Music/ball_sound.tscn"
+ScoreAudio="*res://Music/score_audio.tscn"
+
 [display]
 
 window/size/viewport_width=800

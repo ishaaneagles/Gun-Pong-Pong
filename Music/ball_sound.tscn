@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmg0qohdx8b2i"]
+
+[ext_resource type="AudioStream" uid="uid://cjfonk0hyayp8" path="res://Assets/ball_sound_effect.mp3" id="1_x1anx"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_x1anx")
