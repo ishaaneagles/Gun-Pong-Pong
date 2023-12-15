@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc6hdck3ec1ov"]
+[gd_scene load_steps=7 format=3 uid="uid://bc6hdck3ec1ov"]
 
 [ext_resource type="Script" path="res://Player/player2_racket.gd" id="1_bfsce"]
 [ext_resource type="Script" path="res://Player/Hitbox.gd" id="2_3typd"]
+[ext_resource type="Texture2D" uid="uid://10d1avpgp6ea" path="res://Toy_Gun.png" id="3_ymap1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhhj3"]
 
@@ -93,6 +94,15 @@ modulate = Color(0.686275, 0, 0.0196078, 1)
 position = Vector2(0, 400)
 scale = Vector2(10, 20)
 shape = SubResource("RectangleShape2D_uhhj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-420, 0)
+scale = Vector2(6.695, 5.263)
+texture = ExtResource("3_ymap1")
+flip_h = true
+
+[node name="BulletChamber" type="Marker2D" parent="."]
+position = Vector2(-540, -110)
 
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="body_entered" from="Hurtboxtop" to="." method="_on_hurtboxtop_body_entered"]

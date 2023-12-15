@@ -20,6 +20,7 @@ var bullet_speed = 600
 
 const SPEED = 400.0
 var isGameOver = false
+var chargeCount = 0
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
@@ -34,14 +35,16 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("shoot1"):
 		shoot()
+		chargeCount -= 1
 		
 	move_and_slide()
 
 func shoot():
-	var bullet_instance = bullet.instantiate()
-	bullet_instance.position = bullet_chamber.global_position
-	bullet_instance.apply_impulse(Vector2(bullet_speed, 0),Vector2())
-	get_tree().get_root().add_child(bullet_instance)
+	if (chargeCount>0):
+		var bullet_instance = bullet.instantiate()
+		bullet_instance.position = bullet_chamber.global_position
+		bullet_instance.apply_impulse(Vector2(bullet_speed, 0),Vector2())
+		get_tree().get_root().add_child(bullet_instance)
 	
 
 func _on_hurtboxtop_body_entered(body):
@@ -68,3 +71,7 @@ func _on_hurtboxbot_body_entered(body):
 
 func _on_main_game_ended():
 	isGameOver = true
+
+
+func _on_goal_player_1_scored():
+	chargeCount += 1

@@ -12,15 +12,28 @@ extends CharacterBody2D
 @onready var hitm = $Hitbox/Middle
 @onready var hitb = $Hitbox/Bottom
 
+@onready var bullet_chamber = $BulletChamber
 const SPEED = 400.0
 var isGameOver = false
+var bullet = preload("res://Gun/bullet.tscn")
 
+var bullet_speed = 600
+var chargeCount = 0
+func shoot():
+	if (chargeCount > 0):
+		var bullet_instance = bullet.instantiate()
+		bullet_instance.position = bullet_chamber.global_position
+		bullet_instance.apply_impulse(Vector2(-bullet_speed, 0),Vector2())
+		get_tree().get_root().add_child(bullet_instance)
 func _physics_process(delta):
 	var direction = Vector2.ZERO
 	
 	if (!isGameOver):
 		direction.y = Input.get_action_strength("racket_down2")-Input.get_action_strength("racket_up2")
 	
+	if (Input.is_action_just_pressed("shoot2")):
+		shoot()
+		chargeCount -= 1
 	if direction:
 		velocity = SPEED * direction
 	else:
@@ -51,3 +64,7 @@ func _on_hurtboxbot_body_entered(body):
 
 func _on_main_game_ended():
 	isGameOver = true
+
+
+func _on_goal_player_2_scored():
+	chargeCount += 1

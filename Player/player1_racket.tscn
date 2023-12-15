@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsuraopg83pve"]
+[gd_scene load_steps=7 format=3 uid="uid://bsuraopg83pve"]
 
 [ext_resource type="Script" path="res://Player/player1_racket.gd" id="1_336me"]
 [ext_resource type="Script" path="res://Player/Hitbox.gd" id="2_6m0av"]
+[ext_resource type="Texture2D" uid="uid://10d1avpgp6ea" path="res://Toy_Gun.png" id="3_ywnc1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncbo2"]
 
@@ -95,8 +96,12 @@ scale = Vector2(10, 20)
 shape = SubResource("RectangleShape2D_ncbo2")
 
 [node name="BulletChamber" type="Marker2D" parent="."]
-position = Vector2(330, 0)
-scale = Vector2(1, 1)
+position = Vector2(540, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(420, 0)
+scale = Vector2(6.69466, 5.26318)
+texture = ExtResource("3_ywnc1")
 
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="body_entered" from="Hurtboxtop" to="." method="_on_hurtboxtop_body_entered"]
