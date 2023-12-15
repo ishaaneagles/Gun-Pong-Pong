@@ -21,9 +21,6 @@ PackedBall = ExtResource("4_tarqi")
 visible = false
 scale = Vector2(0.497989, 0.525062)
 
-[node name="player1_racket2" parent="." instance=ExtResource("7_12mf0")]
-position = Vector2(378, 0)
-
 [node name="player1_racket" parent="." instance=ExtResource("3_0xvqg")]
 position = Vector2(-378, 2.38419e-07)
 
