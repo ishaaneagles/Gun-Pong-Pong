@@ -1,13 +1,16 @@
 extends Node2D
 var score_1 = 0
 var score_2 = 0
+var round = 1
 @onready var ScoreLabel1 = $CanvasLayer/Score1
 @onready var ScoreLabel2 = $CanvasLayer/Score2
+@onready var Ball = $Ball
 @export var PackedBall : PackedScene
 func _ready():
-	ScoreLabel1.add_theme_color_override("font_color", Color(0,0,1))
-	ScoreLabel2.add_theme_color_override("font_color", Color(1,0,0))
 	update_score()
+	if (randf() < 0.5):
+		round = 0
+		Ball.ballSpeed = -Ball.ballSpeed
 func _on_goal_player_1_scored():
 	score_1+=1
 func _on_goal_player_2_scored():
@@ -20,5 +23,8 @@ func _physics_process(delta):
 
 
 func _on_goal_reset_ball():
+	round = round + 1
 	var ball = PackedBall.instantiate()
+	if (round % 2 == 0):
+		ball.ballSpeed = -ball.ballSpeed
 	call_deferred("add_child",ball)
