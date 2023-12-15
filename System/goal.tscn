@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://System/goal.gd" id="1_w0p6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv7ot"]
-size = Vector2(800, 8)
+size = Vector2(594.504, 9.86481)
 
 [node name="Goal" type="Area2D"]
 collision_layer = 0

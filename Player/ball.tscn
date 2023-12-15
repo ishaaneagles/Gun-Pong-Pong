@@ -6,12 +6,12 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_5k5fp"]
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Ball" type="CharacterBody2D" groups=["Ball"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_1adpi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Ball" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yfosj")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]

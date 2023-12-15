@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var ballSpeed = 200
+var ballSpeed = 400
 var ballAngle = 0
 var collision = false
 
