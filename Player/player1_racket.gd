@@ -12,6 +12,12 @@ extends CharacterBody2D
 @onready var hitm = $Hitbox/Middle
 @onready var hitb = $Hitbox/Bottom
 
+@onready var bullet_chamber = $BulletChamber
+
+var bullet = preload("res://Gun/bullet.tscn")
+
+var bullet_speed = 600
+
 const SPEED = 400.0
 var isGameOver = false
 
@@ -32,7 +38,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func shoot():
-	pass
+	var bullet_instance = bullet.instantiate()
+	bullet_instance.position = bullet_chamber.global_position
+	bullet_instance.apply_impulse(Vector2(bullet_speed, 0),Vector2())
+	get_tree().get_root().add_child(bullet_instance)
+	
 
 func _on_hurtboxtop_body_entered(body):
 	var hurtt = $Hurtboxtop/Topwall

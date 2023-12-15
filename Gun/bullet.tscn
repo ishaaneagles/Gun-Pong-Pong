@@ -1,17 +1,122 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhvfy8vxh4f5p"]
+[gd_scene load_steps=8 format=3 uid="uid://dhvfy8vxh4f5p"]
+
+[ext_resource type="Script" path="res://Gun/bullet.gd" id="1_8ibyc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tu5w5"]
-radius = 25.02
+radius = 3.16228
 
 [sub_resource type="SphereMesh" id="SphereMesh_gccds"]
 
+[sub_resource type="Animation" id="Animation_hr7ec"]
+resource_name = "Throb"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(28.0318, 28), Vector2(30, 30), Vector2(28.0318, 28)]
+}
+
+[sub_resource type="Animation" id="Animation_se107"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_hpm3g"]
+resource_name = "Float"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yoi0i"]
+_data = {
+"Float": SubResource("Animation_hpm3g"),
+"RESET": SubResource("Animation_se107"),
+"Throb": SubResource("Animation_hr7ec")
+}
+
 [node name="Bullet" type="RigidBody2D"]
+position = Vector2(0, 3)
+collision_layer = 8
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_8ibyc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_tu5w5")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(8.04663e-07, 5.72205e-06)
-scale = Vector2(50.0567, 50)
+modulate = Color(1, 1, 0, 0.486275)
+position = Vector2(0, 3)
+scale = Vector2(30, 30)
 mesh = SubResource("SphereMesh_gccds")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yoi0i")
+}

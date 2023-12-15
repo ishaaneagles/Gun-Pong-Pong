@@ -94,6 +94,10 @@ position = Vector2(0, 400)
 scale = Vector2(10, 20)
 shape = SubResource("RectangleShape2D_ncbo2")
 
+[node name="BulletChamber" type="Marker2D" parent="."]
+position = Vector2(330, 0)
+scale = Vector2(1, 1)
+
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="body_entered" from="Hurtboxtop" to="." method="_on_hurtboxtop_body_entered"]
 [connection signal="body_entered" from="Hurtboxmid" to="." method="_on_hurtboxmid_body_entered"]
