@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgy2l1hpj4cxk"]
+[gd_scene load_steps=11 format=3 uid="uid://bgy2l1hpj4cxk"]
 
 [ext_resource type="PackedScene" uid="uid://0eujvevyrkt7" path="res://World/Map.tscn" id="1_0ymom"]
 [ext_resource type="Script" path="res://World/main.gd" id="1_cjo4d"]
@@ -10,6 +10,14 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv7ot"]
 size = Vector2(800, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wej34"]
+font_size = 64
+font_color = Color(0.223529, 0.545098, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hs83"]
+font_size = 64
+font_color = Color(1, 0, 0, 1)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_cjo4d")
@@ -47,18 +55,21 @@ position = Vector2(376, 1.54972e-06)
 follow_viewport_enabled = true
 
 [node name="Score1" type="Label" parent="CanvasLayer"]
-offset_left = -260.0
-offset_top = -268.0
-offset_right = -220.0
-offset_bottom = -245.0
-scale = Vector2(4, 4)
+offset_left = -240.0
+offset_top = -300.0
+offset_right = -200.0
+offset_bottom = -212.0
+text = "0"
+label_settings = SubResource("LabelSettings_wej34")
 
 [node name="Score2" type="Label" parent="CanvasLayer"]
-offset_left = 180.0
-offset_top = -268.0
-offset_right = 220.0
-offset_bottom = -245.0
-scale = Vector2(4, 4)
+offset_left = 240.0
+offset_top = -300.0
+offset_right = 280.0
+offset_bottom = -212.0
+text = "0"
+label_settings = SubResource("LabelSettings_0hs83")
+horizontal_alignment = 1
 
 [connection signal="player_1_scored" from="Goal" to="." method="_on_goal_player_1_scored"]
 [connection signal="player_2_scored" from="Goal" to="." method="_on_goal_player_2_scored"]
