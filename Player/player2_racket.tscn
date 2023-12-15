@@ -22,6 +22,7 @@ scale = Vector2(10, 20)
 shape = SubResource("RectangleShape2D_uhhj3")
 
 [node name="Midwall" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(10, 20)
 shape = SubResource("RectangleShape2D_uhhj3")
 
@@ -31,6 +32,7 @@ scale = Vector2(10, 20)
 shape = SubResource("RectangleShape2D_uhhj3")
 
 [node name="Middle" type="MeshInstance2D" parent="."]
+visible = false
 position = Vector2(6.67572e-06, 5.72205e-06)
 scale = Vector2(200, 400)
 mesh = SubResource("BoxMesh_qrjv3")
