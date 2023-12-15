@@ -8,6 +8,7 @@ var isGameOver = false
 @onready var ScoreLabel2 = $CanvasLayer/Score2
 @onready var Ball = $Ball
 @onready var _viewport = $CanvasLayer
+@onready var music_player = $AudioStreamPlayer
 @export var PackedBall : PackedScene
 var gameOver = preload("res://Screens/gameOver.tscn")
 signal gameEnded;
@@ -38,6 +39,7 @@ func _on_goal_reset_ball():
 		call_deferred("add_child",ball)
 func game_over():
 	isGameOver = true;
+	music_player.stop()
 	gameEnded.emit();
 	var game_over_instance = gameOver.instantiate()
 	_viewport.add_child(game_over_instance)

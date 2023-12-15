@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8f3b0vg6j5ge"]
+
+[ext_resource type="AudioStream" uid="uid://cuwv4iovsk00m" path="res://Assets/score_get.mp3" id="1_ja7gt"]
+
+[node name="ScoreAudio" type="AudioStreamPlayer"]
+stream = ExtResource("1_ja7gt")
