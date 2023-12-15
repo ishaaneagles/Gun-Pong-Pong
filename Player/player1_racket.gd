@@ -25,7 +25,14 @@ func _physics_process(delta):
 		velocity = SPEED * direction
 	else:
 		velocity.y = lerp(SPEED, 0.0, 1)
+		
+	if Input.is_action_just_pressed("shoot1"):
+		shoot()
+		
 	move_and_slide()
+
+func shoot():
+	pass
 
 func _on_hurtboxtop_body_entered(body):
 	var hurtt = $Hurtboxtop/Topwall
