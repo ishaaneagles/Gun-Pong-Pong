@@ -61,6 +61,8 @@ text = "0"
 label_settings = SubResource("LabelSettings_0hs83")
 horizontal_alignment = 1
 
+[connection signal="gameEnded" from="." to="player1_racket" method="_on_main_game_ended"]
+[connection signal="gameEnded" from="." to="player2_racket" method="_on_main_game_ended"]
 [connection signal="player_1_scored" from="Goal" to="." method="_on_goal_player_1_scored"]
 [connection signal="player_2_scored" from="Goal" to="." method="_on_goal_player_2_scored"]
 [connection signal="reset_ball" from="Goal" to="." method="_on_goal_reset_ball"]

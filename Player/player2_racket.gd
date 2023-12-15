@@ -13,11 +13,13 @@ extends CharacterBody2D
 @onready var hitb = $Hitbox/Bottom
 
 const SPEED = 400.0
+var isGameOver = false
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
 	
-	direction.y = Input.get_action_strength("racket_down2")-Input.get_action_strength("racket_up2")
+	if (!isGameOver):
+		direction.y = Input.get_action_strength("racket_down2")-Input.get_action_strength("racket_up2")
 	
 	if direction:
 		velocity = SPEED * direction
@@ -45,3 +47,7 @@ func _on_hurtboxbot_body_entered(body):
 	skinb.visible = false
 	hitb.disabled = true
 	hurtb.disabled = true
+
+
+func _on_main_game_ended():
+	isGameOver = true
