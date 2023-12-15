@@ -30,6 +30,9 @@ scale = Vector2(0.497989, 0.525062)
 [node name="player1_racket" parent="." instance=ExtResource("3_0xvqg")]
 position = Vector2(-378, 2.38419e-07)
 
+[node name="player2_racket" parent="." instance=ExtResource("7_12mf0")]
+position = Vector2(376, 1.54972e-06)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Ball" parent="." instance=ExtResource("4_tarqi")]
@@ -37,9 +40,6 @@ position = Vector2(-378, 2.38419e-07)
 [node name="BoardWall" parent="." instance=ExtResource("7_u34tx")]
 
 [node name="Goal" parent="." instance=ExtResource("6_pkx6c")]
-
-[node name="player2_racket" parent="." instance=ExtResource("7_12mf0")]
-position = Vector2(376, 1.54972e-06)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
