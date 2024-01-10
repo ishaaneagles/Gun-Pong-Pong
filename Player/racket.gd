@@ -54,7 +54,10 @@ func shoot():
 	if (chargeCount>0):
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.position = bullet_chamber.global_position
-		bullet_instance.apply_impulse(Vector2(bullet_speed, 0),Vector2())
+		if racket == 0:
+			bullet_instance.apply_impulse(Vector2(bullet_speed, 0),Vector2())
+		else:
+			bullet_instance.apply_impulse(Vector2(-bullet_speed, 0),Vector2())
 		get_tree().get_root().add_child(bullet_instance)
 		
 func checkRacket():
@@ -90,4 +93,9 @@ func _on_main_game_ended():
 	isGameOver = true
 
 func _on_goal_player_1_scored():
-	chargeCount += 1
+	if racket == 0:
+		chargeCount += 1
+
+func _on_goal_player_2_scored():
+	if racket == 1:
+		chargeCount += 1

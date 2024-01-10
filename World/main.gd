@@ -15,8 +15,8 @@ var isGameOver = false
 var gameOver = preload("res://Screens/gameOver.tscn")
 signal gameEnded;
 func _ready():
-	#p1.connect("gameEnded", game_over())
-	#p2.connect("gameEnded", game_over())
+	p1.connect("gameEnded", game_over)
+	p2.connect("gameEnded", game_over)
 	update_score()
 	if (randf() < 0.5):
 		round = 0

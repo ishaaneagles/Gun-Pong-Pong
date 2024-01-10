@@ -68,6 +68,7 @@ autoplay = true
 
 [connection signal="gameEnded" from="." to="player1_racket" method="_on_main_game_ended"]
 [connection signal="gameEnded" from="." to="player2_racket" method="_on_main_game_ended"]
+[connection signal="gameEnded" from="." to="Ball" method="_on_main_game_ended"]
 [connection signal="player_1_scored" from="Goal" to="." method="_on_goal_player_1_scored"]
 [connection signal="player_1_scored" from="Goal" to="player1_racket" method="_on_goal_player_1_scored"]
 [connection signal="player_2_scored" from="Goal" to="." method="_on_goal_player_2_scored"]
