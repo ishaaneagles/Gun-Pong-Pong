@@ -9,10 +9,14 @@ var isGameOver = false
 @onready var Ball = $Ball
 @onready var _viewport = $CanvasLayer
 @onready var music_player = $AudioStreamPlayer
+@onready var p1 = $player1_racket
+@onready var p2 = $player2_racket
 @export var PackedBall : PackedScene
 var gameOver = preload("res://Screens/gameOver.tscn")
 signal gameEnded;
 func _ready():
+	#p1.connect("gameEnded", game_over())
+	#p2.connect("gameEnded", game_over())
 	update_score()
 	if (randf() < 0.5):
 		round = 0

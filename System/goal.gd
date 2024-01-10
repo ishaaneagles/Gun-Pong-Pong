@@ -10,8 +10,8 @@ func _on_body_entered(body):
 	if (body.is_in_group("Ball")):
 		ScoreAudio.play()
 		ball = body
-		var ball_velocity_x = ball.velocity.x
-		if (ball_velocity_x < 0):
+		var ball_position_x = ball.position.x
+		if (ball_position_x < 0):
 			player_2_scored.emit()
 		else:
 			player_1_scored.emit()
