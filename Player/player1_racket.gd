@@ -35,11 +35,12 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("shoot1"):
 		shoot()
-		chargeCount -= 1
+		chargeCount = max(chargeCount - 1, 0)
 		
 	move_and_slide()
 
 func shoot():
+	print(chargeCount)
 	if (chargeCount>0):
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.position = bullet_chamber.global_position

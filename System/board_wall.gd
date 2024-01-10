@@ -6,8 +6,8 @@ func _ready():
 	pass;
 
 func _on_body_entered(body):
-	print('Test')
-	print(body.name);
+	#print('Test')
+	#print(body.name);
 	if (body.is_in_group("Ball")):
 		ball = body
 		ball.ballAngle *= -1
