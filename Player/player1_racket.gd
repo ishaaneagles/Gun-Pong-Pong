@@ -50,29 +50,27 @@ func shoot():
 
 func _on_hurtboxtop_body_entered(body):
 	var hurtt = $Hurtboxtop/Topwall
-	wallt.disabled = true
-	skint.visible = false
-	hitt.disabled = true
-	hurtt.disabled = true
+	wallt.queue_free()
+	skint.queue_free()
+	hitt.queue_free()
+	hurtt.queue_free()
 
 func _on_hurtboxmid_body_entered(body):
 	var hurtm = $Hurtboxmid/Midwall
-	wallm.disabled = true
-	skinm.visible = false
-	hitm.disabled = true
-	hurtm.disabled = true
+	wallm.queue_free()
+	skinm.queue_free()
+	hitm.queue_free()
+	hurtm.queue_free()
 
 func _on_hurtboxbot_body_entered(body):
 	var hurtb = $Hurtboxbot/Bottomwall
-	wallb.disabled = true
-	skinb.visible = false
-	hitb.disabled = true
-	hurtb.disabled = true
-
+	wallb.queue_free()
+	skinb.queue_free()
+	hitb.queue_free()
+	hurtb.queue_free()
 
 func _on_main_game_ended():
 	isGameOver = true
-
 
 func _on_goal_player_1_scored():
 	chargeCount += 1
